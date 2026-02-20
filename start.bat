@@ -1,11 +1,11 @@
 @echo off
-chcp 65001 >nul 2>&1
 cd /d "%~dp0"
+set PYTHONUTF8=1
 python main.py
 if errorlevel 1 (
     echo.
-    echo エラーが発生しました。
-    echo まだセットアップしていない場合は、先に setup.bat を実行してください。
+    echo An error occurred.
+    echo If you haven't run setup yet, please run setup.bat first.
     echo.
     pause
 )

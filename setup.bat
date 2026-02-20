@@ -1,22 +1,23 @@
 @echo off
-chcp 65001 >nul 2>&1
-title Webスクレイピングツール - セットアップ
+title Web Scraping Tool - Setup
 
 echo ============================================
-echo   Webスクレイピングツール 初回セットアップ
+echo   Web Scraping Tool - Initial Setup
 echo ============================================
 echo.
 
 cd /d "%~dp0"
 
-REM --- Python確認 ---
-echo [1/3] Pythonの確認...
+REM --- Python Check ---
+echo [1/3] Checking Python...
 python --version >nul 2>&1
 if errorlevel 1 (
     echo.
-    echo エラー: Pythonが見つかりません。
-    echo https://www.python.org/downloads/ からPython 3.11以上をインストールしてください。
-    echo インストール時に「Add Python to PATH」にチェックを入れてください。
+    echo ERROR: Python not found.
+    echo Please install Python 3.11 or later from:
+    echo   https://www.python.org/downloads/
+    echo.
+    echo IMPORTANT: Check "Add Python to PATH" during installation.
     echo.
     pause
     exit /b 1
@@ -25,21 +26,21 @@ python --version
 echo OK
 echo.
 
-REM --- パッケージインストール ---
-echo [2/3] 必要なパッケージをインストール中...
+REM --- Install packages ---
+echo [2/3] Installing required packages...
 pip install -r requirements.txt
 if errorlevel 1 (
     echo.
-    echo エラー: パッケージのインストールに失敗しました。
-    echo ネットワーク接続を確認してください。
+    echo ERROR: Package installation failed.
+    echo Please check your network connection.
     pause
     exit /b 1
 )
 echo OK
 echo.
 
-REM --- フォルダ作成 ---
-echo [3/3] フォルダを作成中...
+REM --- Create folders ---
+echo [3/3] Creating folders...
 if not exist "config" mkdir config
 if not exist "output" mkdir output
 if not exist "logs" mkdir logs
@@ -47,8 +48,8 @@ echo OK
 echo.
 
 echo ============================================
-echo   セットアップ完了！
-echo   start.bat をダブルクリックして起動できます。
+echo   Setup complete!
+echo   Double-click start.bat to launch the app.
 echo ============================================
 echo.
 pause
