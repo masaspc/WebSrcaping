@@ -1,0 +1,18 @@
+# app_config.yaml - アプリケーション全体の設定
+app:
+  window_width: 1200
+  window_height: 800
+  theme: "clam"
+  config_dir: "config"
+  default_output_dir: "output"
+  log_dir: "logs"
+  log_level: "INFO"
+  max_log_lines: 1000
+
+defaults:
+  wait_seconds: 2
+  timeout: 30
+  max_retries: 3
+  user_agent: "MyCompanyScraper/1.0"
+  respect_robots_txt: true
+  encoding: "auto"

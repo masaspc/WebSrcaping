@@ -1,0 +1,45 @@
+# 新規プロファイルテンプレート
+profile_name: ""
+description: ""
+created_at: ""
+updated_at: ""
+
+target:
+  mode: "single"
+  url: ""
+  url_file: ""
+
+engine:
+  type: "requests"
+  encoding: "auto"
+  wait_seconds: 2
+  timeout: 30
+  max_retries: 3
+  respect_robots_txt: true
+  user_agent: "MyCompanyScraper/1.0"
+
+authentication:
+  type: "none"
+  username: ""
+  password: ""
+
+selectors:
+  container: ""
+  fields: []
+
+pagination:
+  enabled: false
+  type: "next_button"
+  selector: ""
+  max_pages: 10
+
+output:
+  directory: "output"
+  filename_template: "{profile_name}_{date}"
+  write_mode: "new"
+  add_timestamp: true
+  add_source_url: true
+  add_run_id: false
+  format_header: true
+  auto_column_width: true
+  add_log_sheet: false
